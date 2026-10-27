@@ -1,0 +1,17 @@
+DER — Sistema de Assistência Técnica
+
+USUARIOS (id PK, nome, usuario UNIQUE, senha_hash, criado_em)
+
+CLIENTES (id PK, nome, cpf_criptografado, telefone, email, endereco, criado_em)
+
+EQUIPAMENTOS (id PK, cliente_id FK -> CLIENTES.id, tipo, marca, modelo,
+              numero_serie, descricao, criado_em)
+
+ORDENS_SERVICO (id PK, cliente_id FK -> CLIENTES.id,
+                equipamento_id FK -> EQUIPAMENTOS.id, problema, diagnostico,
+                status, valor, data_abertura, data_conclusao)
+
+Relacionamentos:
+CLIENTES 1:N EQUIPAMENTOS
+CLIENTES 1:N ORDENS_SERVICO
+EQUIPAMENTOS 1:N ORDENS_SERVICO
